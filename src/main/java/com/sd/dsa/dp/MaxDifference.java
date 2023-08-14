@@ -16,7 +16,6 @@ public class MaxDifference {
     }
     
      public static int maxDifference(int[] nums) {
-       
         
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
