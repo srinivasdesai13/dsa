@@ -59,8 +59,34 @@ public class FindMaxPathSum {
 		return total;
 	}
 
+	
+	public int findMaxPathSumUsingDP() {
+        int rows = this.grid.length;
+        int cols = this.grid[0].length;
+        int[][] dp = new int[rows][cols];
+        dp[0][0] = this.grid[0][0];
+        for(int col=1;col<cols;col++){
+            dp[0][col] = this.grid[0][col]+dp[0][col-1];
+        }
+        
+        for(int row=1;row<rows;row++){
+            dp[row][0] = this.grid[row][0]+dp[row-1][0];
+        }
+        
+        for(int row=1;row<rows;row++){
+            for(int col=1;col<cols;col++){
+                dp[row][col] = this.grid[row][col]+Math.max(dp[row-1][col],dp[row][col-1]);
+            }
+        }
+        return dp[rows-1][cols-1];
+    }
+    
+	
+	
 	public static void main(String[] args) {
-		int[][] grid = { { 3, 7, 1, 2 }, { 2, 6, 5, 9 }, { 4, 1, 2, 0 } };
+		int[][] grid =  {{1, 3, 1},
+		        {1, 5, 1},
+		        {4, 2, 1}};
 
 		// 3,10,11,13
 		// 5 16 21 30
