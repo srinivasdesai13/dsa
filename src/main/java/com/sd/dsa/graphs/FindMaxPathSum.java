@@ -1,7 +1,10 @@
 package com.sd.dsa.graphs;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FindMaxPathSum {
-	
+
 	/*
 	 * 
 	 * Question:
@@ -15,7 +18,6 @@ public class FindMaxPathSum {
 	 * 
 	 * 
 	 */
-	
 
 	private int[][] grid;
 
@@ -37,8 +39,28 @@ public class FindMaxPathSum {
 		return grid[row][col] + Math.max(dfs(grid, row, col + 1), dfs(grid, row + 1, col));
 	}
 
+	public int findMaxPathSumUsingMemoization() {
+		Map<String, Integer> memo = new HashMap<>();
+		int maxPath = dfs(grid, 0, 0, memo);
+		System.out.println(" maxPath= " + maxPath);
+		return maxPath;
+	}
+
+	public int dfs(int[][] gird, int row, int col, Map<String, Integer> memo) {
+		if (row >= grid.length || col >= grid[0].length) {
+			return 0;
+		}
+
+		if (memo.get(row + "-" + col) != null) {
+			return memo.get(row + "-" + col);
+		}
+		int total = grid[row][col] + Math.max(dfs(grid, row, col + 1, memo), dfs(grid, row + 1, col, memo));
+		memo.put(row + "-" + col, total);
+		return total;
+	}
+
 	public static void main(String[] args) {
-		int[][] grid = { { 1, 3, 1 }, { 1, 5, 1 }, { 4, 2, 1 } };
+		int[][] grid = { { 3, 7, 1, 2 }, { 2, 6, 5, 9 }, { 4, 1, 2, 0 } };
 
 		// 3,10,11,13
 		// 5 16 21 30
@@ -46,7 +68,10 @@ public class FindMaxPathSum {
 		FindMaxPathSum myGrid = new FindMaxPathSum(grid);
 
 		// Call the findMaxPathSum method and print the result.
-		int maxPathSum = myGrid.findMaxPathSum();
+		long start = System.nanoTime();
+		int maxPathSum = myGrid.findMaxPathSumUsingMemoization();
+		long end = System.nanoTime();
+		System.out.println("total-time = " + (end - start));
 		System.out.println("Maximum path sum: " + maxPathSum);
 	}
 }
