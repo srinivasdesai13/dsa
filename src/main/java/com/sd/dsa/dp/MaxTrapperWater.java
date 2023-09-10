@@ -1,7 +1,7 @@
 package com.sd.dsa.dp;
 
 public class MaxTrapperWater {
-	
+
 	/*
 	 * Problem: You are given a list of non-negative integers representing the
 	 * heights of walls at different positions. You are also given two pointers,
