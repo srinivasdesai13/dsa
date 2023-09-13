@@ -1,5 +1,5 @@
 package com.sd.dsa.backtracking;
-
+import java.util.*;
 public class MaxNonAdjacentSum {
 
 	/*
@@ -31,5 +31,19 @@ public class MaxNonAdjacentSum {
 
 	}
 	
+	 public static int dfs(int[] nums, int index, int current_sum,Map<String,Integer> map){
+	        if(index>=nums.length){
+	            return current_sum;
+	        }
+	        if(map.get(index+"-"+current_sum)!=null){
+	            return map.get(index+"-"+current_sum);
+	        }
+	        int inc = dfs(nums,index+2,current_sum+nums[index], map);
+	        int exc = dfs(nums,index+1,current_sum,map);
+	        int max =  Math.max(inc,exc);
+	        map.put(index+"-"+current_sum, max);
+	        return map.get(index+"-"+current_sum);
+	        }
+
 	
 }
