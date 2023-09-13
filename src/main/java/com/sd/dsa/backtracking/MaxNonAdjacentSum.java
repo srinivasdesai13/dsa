@@ -11,12 +11,14 @@ public class MaxNonAdjacentSum {
 	 */
 
 	public static void main(String[] args) {
+		
 		int[] nums = { 5, 20, 15, -2, 18 };
 		int result = maxNonAdjacentSum(nums);
 		System.out.println("Indices of the two numbers: " + result);
 	}
 
 	public static int maxNonAdjacentSum(int[] nums) {
+		Map<String,Integer> memo = new HashMap<>();
 		return dfs(nums, 0, 0);
 	}
 
