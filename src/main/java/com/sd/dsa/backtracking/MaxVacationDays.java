@@ -1,5 +1,7 @@
 package com.sd.dsa.backtracking;
 
+import java.util.Map;
+
 public class MaxVacationDays {
 
 	/**
@@ -23,8 +25,10 @@ public class MaxVacationDays {
 	 */
 
 	public static void main(String args[]) {
-		int[] nums = { 1, 1, 0, 0, 1, 0, 1, 1 };
-		int k = 2;
+		int[] nums = {0, 1, 0, 1, 0, 1, 0, 1};
+		int k = 4;
+
+
 
 		System.out.println("Sum of x+y = " + maxVacationDays(nums, k));
 	}
@@ -52,4 +56,29 @@ public class MaxVacationDays {
 		return Math.max(inc, ex);
 
 	}
+	
+	public static int dfs(int[] nums,int index, int  k,Map<String,Integer> memo){
+        if(index>=nums.length){
+            return 0;
+        }
+        if(memo.get(index+"-"+k)!=null){
+            return memo.get(index+"-"+k);
+        }
+        
+        if(k==0){
+            System.out.println("here ");
+            return 0;
+        }
+        int inc = 0;
+        if(nums[index]==1){
+            inc = 1+dfs(nums,index+2,k-1,memo);
+        }
+        
+        int ex = dfs(nums,index+1,k,memo);
+        
+        int max =  Math.max(inc,ex);
+        memo.put(index+"-"+k,max);
+        return memo.get(index+"-"+k);
+        
+    }
 }
