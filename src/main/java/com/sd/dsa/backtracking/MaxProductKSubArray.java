@@ -24,7 +24,7 @@ public class MaxProductKSubArray {
 	}
 
 	public static void dfs(int[] nums, int index, int used, int current, int[] max, Map<String, Integer> map) {
-		System.out.println(++iteration);
+		System.out.println(used);
 
 		if (used == 2) { // 2 can be replaced by k
 			max[0] = Math.max(max[0], current);
