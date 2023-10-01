@@ -22,7 +22,7 @@ public class MissingNumber {
 		int x = 10;
 		int y = 25;
 		int z = x + y;
-		int[] nums = { 0, 1, 2, 3, 4, 5 };
+		int[] nums = { 6,1,2,8,3,4,7,10,5};
 
 		System.out.println("Sum of x+y = " + missingNumber(nums));
 	}

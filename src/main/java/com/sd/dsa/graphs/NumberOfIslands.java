@@ -23,7 +23,7 @@ public class NumberOfIslands {
 
 		int response = numIslands(grid);
 		System.out.println("response " + response);
-	}
+	}  
 
 	public static int numIslands(char[][] grid) {
 		boolean[][] visited = new boolean[grid.length][grid[0].length];
