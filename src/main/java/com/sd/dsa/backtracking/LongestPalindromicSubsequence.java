@@ -3,6 +3,24 @@ package com.sd.dsa.backtracking;
 import java.util.*;
 
 public class LongestPalindromicSubsequence {
+
+	/*
+	 * 
+	 * Problem: Given a string s, find the length of the longest palindromic
+	 * subsequence in s. A palindromic subsequence is a sequence of characters in
+	 * the same order as they appear in the original string, but not necessarily
+	 * contiguous, and it reads the same backward as forward.
+	 * 
+	 * Write a function to find the length of the longest palindromic subsequence in
+	 * the input string.
+	 * 
+	 * For example, if the input string is "bbab", the longest palindromic
+	 * subsequence is "bab" or "bbb," and the function should return 3.
+	 * 
+	 * 
+	 * 
+	 */
+
 	public static void main(String args[]) {
 		String str = "racecar";
 		int max = Integer.MIN_VALUE;
