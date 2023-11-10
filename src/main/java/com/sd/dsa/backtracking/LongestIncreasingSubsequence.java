@@ -23,7 +23,8 @@ public class LongestIncreasingSubsequence {
 		int y = 25;
 		int z = x + y;
 		int[] nums = { 10, 9, 2, 5, 3, 7, 101, 18 };
-
+			String str = "";
+			str.ch
 		System.out.println("Sum of x+y = " + lengthOfLIS(nums));
 
 	}

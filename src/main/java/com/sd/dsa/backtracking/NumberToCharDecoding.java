@@ -10,7 +10,7 @@ public class NumberToCharDecoding {
 	 */
 
 	 public static void main(String args[]) {
-	      numDecodings("202");
+	      numDecodings("12");
 	    }
 	    
 	    
